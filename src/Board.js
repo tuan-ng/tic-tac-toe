@@ -1,17 +1,16 @@
-import React from 'react';
-import './Board.css';
+import React from "react";
+import "./Board.css";
 
-import Square from './Square';
+import Square from "./Square";
 
-const Board = ({ hl, squares, onClick }) => { 
-  const renderSquare = i => { 
+const Board = ({ hl, squares, onClick }) => {
+  const renderSquare = i => {
     const marked = hl ? hl.includes(i) : false;
     return (
       <Square marked={marked} value={squares[i]} onClick={() => onClick(i)} />
     );
   };
 
-    
   return (
     <div>
       <div className="board-row">
