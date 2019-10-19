@@ -1,8 +1,8 @@
 # Tic-Tac-Toe
 
 This post illustrates building a tic-tac-toe game using React (with
-**create-react-app**). The post is inspired by a tutorial by [Dan
-Abramov](https://reactjs.org/tutorial/tutorial.html). It implements, with some
+**create-react-app**). The post is inspired by a [tutorial](https://reactjs.org/tutorial/tutorial.html)
+by **DanAbramov**. It implements, with some
 changes, what are discussed in the tutorial; in addition, it includes some of
 the suggested practice problems mentioned in the tutorial.
 
