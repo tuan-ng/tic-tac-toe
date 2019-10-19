@@ -1,27 +1,27 @@
-# Tic-Tac-Toe 
+# Tic-Tac-Toe
 
-This post illustrates building a tic-tac-toe game using 
-React (with **create-react-app**). 
-The post is inspired by a tutorial by Dan Abramov. It implements, with 
-some changes, what are discussed in the tutorial; in addition, 
-it includes some of the suggested practice problems mentioned in the tutorial. 
+This post illustrates building a tic-tac-toe game using React (with
+**create-react-app**). The post is inspired by a tutorial by [Dan
+Abramov](https://reactjs.org/tutorial/tutorial.html). It implements, with some
+changes, what are discussed in the tutorial; in addition, it includes some of
+the suggested practice problems mentioned in the tutorial.
 
-We want to build a tic-tac-toe game that keeps track of all 
-the moves for us and is able to jump to the state 
-associated with a particular move (time travel). 
+We want to build a tic-tac-toe game that keeps track of all
+the moves for us and is able to jump to the state
+associated with a particular move (time travel).
 
-Some of the subtle points include handling properly clicks on squares. 
-`stepNumber` (in `Game`) keeps track of the current step in `history` 
-(in `Game`) and when there's 
-a time travel (which means `stepNumber` is not at the latest point in `history`), 
-all future history has to be discarded. 
+Some of the subtle points include handling properly clicks on squares.
+`stepNumber` (in `Game`) keeps track of the current step in `history`
+(in `Game`) and when there's
+a time travel (which means `stepNumber` is not at the latest point in `history`),
+all future history has to be discarded.
 
-Play the game [here](https://tuan-ng.github.io/tic-tac-toe/)! 
+Play the game [here](https://tuan-ng.github.io/tic-tac-toe/)!
 
-### Highlighting a winner 
+### Highlighting a winner
 
-A win is all `'X'` or all `'O'` in one of the following 
-configurations 
+A win is all `'X'` or all `'O'` in one of the following
+configurations
 
 ```javasript
 const wins = [
@@ -36,16 +36,15 @@ const wins = [
 ];
 ```
 
-If a win has been detected, we highlight the win line as shown in the 
-figure below (the win line here is `[0, 4, 8]`). 
+If a win has been detected, we highlight the win line as shown in the
+figure below (the win line here is `[0, 4, 8]`).
 
 ![a win](/images/win.png)
 
+### Declaring a draw
 
-### Declaring a draw 
-It's simple if we just want to declare a draw after all the 
-squares have been clicked. We may write for example: 
-
+It's simple if we just want to declare a draw after all the
+squares have been clicked. We may write for example:
 
 ```javascript
 // Inside Game
@@ -65,24 +64,22 @@ render() {
 ```
 
 However, we want to do a little better, i.e. being able to
-declare a draw before all the squares have been clicked. 
-The logic is shown in the function `determineDraw` (`Game.js`). 
-The idea is 
-that a draw is predicted when there's no win line left, or 
-when there's only one win line left 
-and it's not possible to cover the line with all `'X'` or all 
-`'O'` anymore. This means one of the three possible situations: 
+declare a draw before all the squares have been clicked.
+The logic is shown in the function `determineDraw` (`Game.js`).
+The idea is
+that a draw is predicted when there's no win line left, or
+when there's only one win line left
+and it's not possible to cover the line with all `'X'` or all
+`'O'` anymore. This means one of the three possible situations:
 
-* All three squares in the line have not been clicked, and there are 
-not over three more clicks allowed, or 
-* Two among three squares in the line have not been clicked, and 
-there are not over two more clicks allowed, or 
-* There's only one square in the line that has not been clicked, and 
-there's only one click left, but the click is of the opposite kind 
-with that of those that have already been on the line. 
+- All three squares in the line have not been clicked, and there are
+  not over three more clicks allowed, or
+- Two among three squares in the line have not been clicked, and
+  there are not over two more clicks allowed, or
+- There's only one square in the line that has not been clicked, and
+  there's only one click left, but the click is of the opposite kind
+  with that of those that have already been on the line.
 
-The figure shows an example. 
+The figure shows an example.
 
 ![a draw](/images/draw.png)
-
-
